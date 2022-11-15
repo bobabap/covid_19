@@ -1,0 +1,10 @@
+tensorflow==2.7.0
+numpy
+pandas
+matplotlib
+seaborn
+keras
+librosa
+torchvision
+torch
+scipy
