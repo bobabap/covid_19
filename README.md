@@ -51,7 +51,8 @@ test [Folder] : 기침소리 테스트용 오디오 파일 (5732개)
 
 CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정보가 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/924c12a0-6804-4f3d-a76a-225c5a1dbdbb/Untitled.png)
+![Untitled (5)](https://user-images.githubusercontent.com/87513112/201999170-71df0e12-81c5-48c3-a349-fe27d1b8588c.png)
+
 
 딥러닝으로만 문제를 해결하고자 확진 여부 외에 사용하지 않음
 
@@ -68,11 +69,13 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 
 ****MFCC (Mel Frequency Cepstral Coefficient) 변환****
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e003f46-fd18-4ee9-b777-6b861387a0ac/Untitled.png)
+![201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818](https://user-images.githubusercontent.com/87513112/201999221-db2c1106-e415-47a6-955d-16030306bb65.png)
+
 
 **mel spectrogram 변환**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6f35b480-00f2-42af-aec1-482350c6eff9/Untitled.png)
+![Untitled (2)](https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png)
+
 
 ```python
 # mel
@@ -92,11 +95,13 @@ def feature_extraction(path):
 
 1. 모델 학습
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/78cb7c96-e4f9-421e-86a8-466bf162cd7e/Untitled.png)
+![Untitled (3)](https://user-images.githubusercontent.com/87513112/201999245-793c2246-c76c-4a84-87f9-8f60256b8636.png)
+
 
 **기침 소리 데이터를 변형하여 음성, 양성 데이터를 CNN 모델로 학습하고 코로나 확진 여부 판별**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/02360634-bcdb-46a4-b59e-064bc575ca06/Untitled.png)
+![Untitled (1)](https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png)
+
 
 [결과]
 
@@ -161,7 +166,8 @@ id / age / gender / respiratory_condition / fever_or_muscle_pain
 
 ### mel
 
-![Untitled (2).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91943566-315d-48a7-acfc-0b2d30cafa54/Untitled_(2).png)
+<img src=https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.pngwidth="200" height="200"/>
+
 
 - train
 negative, positive 나누어서 2개의 class로 저장
@@ -170,7 +176,8 @@ negative, positive 나누어서 2개의 class로 저장
 
 ### mfcc
 
-![201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/19767758-924e-4225-9975-73f8996708da/201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818.png)
+<img src=[https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.pngwidth](https://user-images.githubusercontent.com/87513112/201999621-c0a8c8db-1396-4cea-b050-c5f2ba93993e.png)="200" height="200"/>
+
 
 - train
 negative, positive 나누어서 2개의 class로 저장
