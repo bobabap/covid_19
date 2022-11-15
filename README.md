@@ -166,7 +166,7 @@ id / age / gender / respiratory_condition / fever_or_muscle_pain
 
 ### mel
 
-<img src=https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.png width="200" height="200"/>
+<img src=https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.png width="300" height="200"/>
 
 
 - train
@@ -175,9 +175,8 @@ negative, positive 나누어서 2개의 class로 저장
 1개의 class로 저장
 
 ### mfcc
-![201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818]()
 
-<img src=https://user-images.githubusercontent.com/87513112/201999826-79ae61f3-ca59-49e5-835c-344fd466123d.png width="200" height="200"/>
+<img src=https://user-images.githubusercontent.com/87513112/201999826-79ae61f3-ca59-49e5-835c-344fd466123d.png width="400" height="200"/>
 
 
 - train
