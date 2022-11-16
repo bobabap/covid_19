@@ -94,8 +94,7 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
 
 
 
-5. 모델 학습
-    ![image10](https://user-images.githubusercontent.com/87513112/202076153-0b90ecc1-a338-4c35-9c12-e7f199f35925.png)
+5. 모델 학습  
     **CNN 모델로 학습하고 코로나 확진 여부 판별**
     
     Found 3426 images belonging to 2 classes. —> negative  
@@ -108,7 +107,7 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
     — confusion matrix 확인
     
     — submission csv에 예측 값 변경 후 데이콘에 제출하여 점수 확인
-
+![image10](https://user-images.githubusercontent.com/87513112/202076153-0b90ecc1-a338-4c35-9c12-e7f199f35925.png)
 
 
 [결과]
@@ -124,8 +123,7 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
 
 
 
-
-
+----
 
 
 
