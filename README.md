@@ -87,9 +87,9 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
     
     **CNN 모델로 학습하고 코로나 확진 여부 판별**
     
-    Found 3426 images belonging to 2 classes. —> negative
-    Found 379 images belonging to 2 classes. —> positive
-    Found 5732 images belonging to 1 classes. —> test
+    Found 3426 images belonging to 2 classes. —> negative  
+    Found 379 images belonging to 2 classes. —> positive  
+    Found 5732 images belonging to 1 classes. —> test  
     
     — ImageDataGenerator 데이터 학습 테스트 나눔
     —  모델 100 epoch 학습
