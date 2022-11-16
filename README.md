@@ -13,21 +13,17 @@ COVID-19 검출을 위한 표준 방법은 역전사 중합효소 연쇄 반응(
 때문에 대규모로 배포할 수 있으며, 기존의 한계점을 해결할 수 있는 **대체 진단 도구**가 필요합니다.
 
 [역할]
-
 base code 작성 , 코드 총괄
 
 [목표]
 
-COVID-19의 두드러진 증상은 기침과 호흡 곤란을 포함합니다.
-
-**AI 기술을 활용하여 기침 소리로부터 COVID-19에 대한 유용한 통찰력**을 얻을 수 있다면, 
-새로운 진단 도구의 설계도 충분히 가능 할 수 있다고 예상합니다.
-
-대회 1등 ( 주어진 데이터를 가지고 가장 높은 score를 만들어내는 것 )
-
-score 0.6 이상
+- librosa 음성 파일 분석 프로그램을 가지고 기침소리 데이터를 딥러닝 학습을 할 수 있게 만든다.
+- CNN 모델로 코로나 양성, 음성을 판별하고 정확도를 높인다.
+- 판별 score 0.6 이상
+- 대회 1등 ( 주어진 데이터를 가지고 가장 높은 score를 만들어내는 것 )
 
 [진행]
+2022.06.24 ~ 2022.07.08
 
 1. **데이콘 음향 데이터 COVID-19 검출 AI 경진대회에서 데이터 다운로드**
 
@@ -52,16 +48,15 @@ test [Folder] : 기침소리 테스트용 오디오 파일 (5732개)
 CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정보가 있다.
 
 ![Untitled (5)](https://user-images.githubusercontent.com/87513112/201999170-71df0e12-81c5-48c3-a349-fe27d1b8588c.png)
+기침 소리로만 판별을 하고자 확진 여부 외에 사용하지 않음
 
 
-딥러닝으로만 문제를 해결하고자 확진 여부 외에 사용하지 않음
 
 2. 기침 소리 데이터 전처리
 
 1. 전처리 없이 있는 그대로 사용한 데이터
-2. 직접 3000개 이상의 오디오 파일을 직접 듣고 모든 잡음 포함, 말소리 오디오를 삭제한 데이터
-3. 무음만 제거한 데이터
-4. 한 파일 당 2초 오디오 분할한 데이터
+2. 무음만 제거한 데이터
+3. 한 파일 당 2초 오디오 분할한 데이터
 
 3. 음향 데이터 이미지 변환
 
@@ -69,10 +64,18 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 
 ****MFCC (Mel Frequency Cepstral Coefficient) 변환****
 
+```python
+mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
+```
+
 ![201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818](https://user-images.githubusercontent.com/87513112/201999221-db2c1106-e415-47a6-955d-16030306bb65.png)
 
 
 **mel spectrogram 변환**
+
+```python
+mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
+```
 
 ![Untitled (2)](https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png)
 
@@ -93,23 +96,30 @@ def feature_extraction(path):
     S = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
 ```
 
-1. 모델 학습
-
 ![Untitled (3)](https://user-images.githubusercontent.com/87513112/201999245-793c2246-c76c-4a84-87f9-8f60256b8636.png)
 
 
-**기침 소리 데이터를 변형하여 음성, 양성 데이터를 CNN 모델로 학습하고 코로나 확진 여부 판별**
+4. 모델 학습
+    
+    **CNN 모델로 학습하고 코로나 확진 여부 판별**
+    
+    Found 3426 images belonging to 2 classes. —> negative
+    Found 379 images belonging to 2 classes. —> positive
+    Found 5732 images belonging to 1 classes. —> test
+    
+    — ImageDataGenerator 데이터 학습 테스트 나눔
+    —  모델 100 epoch 학습
+    
+    — confusion matrix 확인
+    
+    — submission csv에 예측 값 변경 후 데이콘에 제출하여 점수 확인
 
 ![Untitled (1)](https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png)
 
 
 [결과]
 
-오디오 파일만 가지고 학습한 CNN 모델 정확도 최대 0.52
-
-기침여부 성별 등 Dataframe 데이터도 합한 베이스라인에서 수정한 모델 0.58
-
-하지만 기침 소리만 가지고 판별하는 것이 목표기 때문에 딥러닝으로 진행
+원본, 무음처리, 분할 오디오 학습한 CNN 모델 정확도 최대 0.52
 
 [개선, 느낀 점]
 
@@ -117,6 +127,13 @@ def feature_extraction(path):
 데이터 부족으로 최대 정확도 이상 변화를 줄 수 없음
 2. 확실히 대회 최대 점수도 발열 여부 등 추가 데이터와 함께 학습함에도 불구하고 0.62 이상을 넘기지 못하는 것을 보니 데이터 부족이 원인인 것을 알 수 있었다.
 3. 음향 데이터에 대한 지식이 필요하다.
+
+
+
+
+
+
+
 
 ### 파일 구조
 
