@@ -59,7 +59,7 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 3. 한 파일 당 2초 오디오 분할한 데이터
 
 3. 음향 데이터 이미지 변환
-<img src=https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png width="400" height="200"/>
+<img src=https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png width="500" height="300"/>
 
 - **wav 기침소리 파일들을 librosa를 이용하여 데이터 시각화**
 
@@ -69,7 +69,7 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
 ```
 
-![201464885-d8b094e5-b8ae-4347-80b7-c7d4123eb818](https://user-images.githubusercontent.com/87513112/201999221-db2c1106-e415-47a6-955d-16030306bb65.png)
+<img src=https://user-images.githubusercontent.com/87513112/201999221-db2c1106-e415-47a6-955d-16030306bb65.png width="500" height="300"/>
 
 
 **mel spectrogram 변환**
@@ -78,7 +78,7 @@ mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
 mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
 ```
 
-![Untitled (2)](https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png)
+<img src=https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png  width="300" height="300"/>
 
 
 
