@@ -59,6 +59,7 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 3. 한 파일 당 2초 오디오 분할한 데이터
 
 3. 음향 데이터 이미지 변환
+<img src=https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png width="400" height="200"/>
 
 - **wav 기침소리 파일들을 librosa를 이용하여 데이터 시각화**
 
@@ -97,7 +98,6 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
     
     — submission csv에 예측 값 변경 후 데이콘에 제출하여 점수 확인
 
-![Untitled (1)](https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png)
 
 
 [결과]
