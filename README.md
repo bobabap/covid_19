@@ -80,23 +80,6 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
 ![Untitled (2)](https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png)
 
 
-```python
-# mel
-frame_length = 0.025
-frame_stride = 0.010
-
-def feature_extraction(path):
-    # mel-spectrogram
-    y, sr = librosa.load(path, sr=16000)
-
-    # wav_length = len(y)/sr
-    input_nfft = int(round(sr*frame_length))
-    input_stride = int(round(sr*frame_stride))
-
-    S = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
-```
-
-![Untitled (3)](https://user-images.githubusercontent.com/87513112/201999245-793c2246-c76c-4a84-87f9-8f60256b8636.png)
 
 
 4. 모델 학습
