@@ -50,15 +50,25 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 ![Untitled (5)](https://user-images.githubusercontent.com/87513112/201999170-71df0e12-81c5-48c3-a349-fe27d1b8588c.png)
 기침 소리로만 판별을 하고자 확진 여부 외에 사용하지 않음
 
+2. 음향 데이터의 이해
+
+![image](https://user-images.githubusercontent.com/87513112/202076128-8db58f31-3ed1-4aed-890d-43c693be2ed8.png)
+![image2](https://user-images.githubusercontent.com/87513112/202076131-6b0f79c9-50e8-4bab-939b-3a094f105969.png)
+![image3](https://user-images.githubusercontent.com/87513112/202076134-8fda92fa-f874-4d48-b129-eb6cb322136b.png)
+![image4](https://user-images.githubusercontent.com/87513112/202076136-7f6f9cdb-85ea-4af2-b72a-2575234c2627.png)
 
 
-2. 기침 소리 데이터 전처리
+3. 기침 소리 데이터 전처리
+![image6](https://user-images.githubusercontent.com/87513112/202076140-4a429dbb-8a36-4f3f-961b-1b7ed4092753.png)
+![image7](https://user-images.githubusercontent.com/87513112/202076142-f15060ab-b867-492f-b29a-10161fc03796.png)
+![image8](https://user-images.githubusercontent.com/87513112/202076146-00aec008-e715-4d6c-86c1-c4479225a185.png)
+![image9](https://user-images.githubusercontent.com/87513112/202076152-f73fdc5e-6ec4-45fb-86bd-cea80b064f3c.png)
 
 1. 전처리 없이 있는 그대로 사용한 데이터
 2. 무음만 제거한 데이터
 3. 한 파일 당 2초 오디오 분할한 데이터
 
-3. 음향 데이터 이미지 변환
+4. 음향 데이터 이미지 변환
 <img src=https://user-images.githubusercontent.com/87513112/201999308-3274dd1f-0693-420c-b027-be467b1dad2c.png width="500" height="300"/>
 
 - **wav 기침소리 파일들을 librosa를 이용하여 데이터 시각화**
@@ -73,6 +83,7 @@ mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
 
 
 **mel spectrogram 변환**
+![image5](https://user-images.githubusercontent.com/87513112/202076138-bf219321-069b-4e3d-8a46-cacf6029fe56.png)
 
 ```python
 mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
@@ -83,8 +94,8 @@ mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nff
 
 
 
-4. 모델 학습
-    
+5. 모델 학습
+    ![image10](https://user-images.githubusercontent.com/87513112/202076153-0b90ecc1-a338-4c35-9c12-e7f199f35925.png)
     **CNN 모델로 학습하고 코로나 확진 여부 판별**
     
     Found 3426 images belonging to 2 classes. —> negative  
