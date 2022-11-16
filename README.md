@@ -69,7 +69,7 @@ CSV파일에는 나이, 성별, 기침 여부, 발열 여부, 확진 여부 정�
 mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
 ```
 
-<img src=https://user-images.githubusercontent.com/87513112/201999221-db2c1106-e415-47a6-955d-16030306bb65.png width="500" height="300"/>
+<img src=https://user-images.githubusercontent.com/87513112/201999826-79ae61f3-ca59-49e5-835c-344fd466123d.png width="400" height="200"/>
 
 
 **mel spectrogram 변환**
@@ -78,7 +78,7 @@ mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=CFG['N_MFCC'])
 mel_spectrogram = librosa.feature.melspectrogram(y=y, n_mels=40, n_fft=input_nfft, hop_length=input_stride)
 ```
 
-<img src=https://user-images.githubusercontent.com/87513112/201999227-05c63b16-58f0-4af0-9ae6-e9c87971a585.png  width="300" height="300"/>
+<img src=https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.png width="300" height="200"/>
 
 
 
@@ -166,7 +166,7 @@ id / age / gender / respiratory_condition / fever_or_muscle_pain
 
 ### mel
 
-<img src=https://user-images.githubusercontent.com/87513112/201999493-cf191f39-1a37-4389-8bb1-1deebf891c38.png width="300" height="200"/>
+
 
 
 - train
@@ -176,7 +176,7 @@ negative, positive 나누어서 2개의 class로 저장
 
 ### mfcc
 
-<img src=https://user-images.githubusercontent.com/87513112/201999826-79ae61f3-ca59-49e5-835c-344fd466123d.png width="400" height="200"/>
+
 
 
 - train
